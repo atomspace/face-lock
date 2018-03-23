@@ -1,0 +1,11 @@
+{
+  "name": "facelock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "ecstatic face-lock src" 
+  },
+  "author": "quantum",
+  "license": "ISC"
+}
