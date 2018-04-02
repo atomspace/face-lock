@@ -1,11 +1,20 @@
 {
-  "name": "facelock",
+  "name": "face-lock",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
-    "test": "ecstatic face-lock src" 
+    "test": "ecstatic face-lock src",
+    "start": "electron .",
+    "build": "electron-packager . --out=build --overwrite --ignore=\\.vscode"
   },
   "author": "quantum",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "tracking": "1.1.3"
+  },
+  "devDependencies": {
+    "electron": "1.8.4",
+    "electron-packager": "11.2.0"
+  }
 }
