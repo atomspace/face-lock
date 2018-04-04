@@ -10,13 +10,14 @@ window.onload = function() {
 
     var isFace = false;
 
-    // function setMask(x, y, height, width) {
-    //   var mask = document.getElementById('mask');
-    //   mask.style.left = x + 'px';
-    //   mask.style.top = y + 'px';
-    //   mask.style.height = height + 'px';
-    //   mask.style.width = width + 'px';
-    // }
+    var system = require('./system.js');
+
+    var lockDelay = 10000;
+    function lockSystem() {
+      if(!isFace) {
+        system.lock();
+      }
+    } 
 
     tracking.track('#video', tracker, { camera: true });
 
@@ -26,6 +27,7 @@ window.onload = function() {
         if(isFace){
           isFace = false;
           console.log('ABSENT');
+          setTimeout(lockSystem, lockDelay);
         }
       } else {
         event.data.forEach(function(rect) {
@@ -35,8 +37,6 @@ window.onload = function() {
           context.fillStyle = "#fff";
           context.fillText('x: ' + rect.x + 'px', rect.x + rect.width + 5, rect.y + 11);
           context.fillText('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22);
-          
-          // setMask(rect.x, rect.y, rect.height, rect.width);
 
           if(!isFace){
             isFace = true;
