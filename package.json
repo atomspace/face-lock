@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "test": "ecstatic face-lock src",
+    "test": "neutrino test --use @neutrinojs/jest",
     "start": "electron .",
     "build": "electron-packager . --out=build --overwrite --ignore=\\.vscode"
   },
@@ -16,6 +16,8 @@
   },
   "devDependencies": {
     "electron": "1.8.4",
-    "electron-packager": "11.2.0"
+    "electron-packager": "11.2.0",
+    "neutrino": "^8.2.2",
+    "@neutrinojs/jest": "8.2.2"
   }
 }
