@@ -1,2 +1,2 @@
-require('./services/face-detecting.service.js');  
+require('./controllers/lock.controller');  
 

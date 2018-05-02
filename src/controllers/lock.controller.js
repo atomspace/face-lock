@@ -1,4 +1,4 @@
-var lockSystem = require('./lock-system.service.js')
+var lockSystem = require('../services/lock-system.service')
 
 var video = document.getElementById('video');
 var canvas = document.getElementById('canvas');
@@ -17,14 +17,14 @@ tracking.track('#video', tracker, { camera: true });
         if(isFace){
           isFace = false;
           console.log('ABSENT');
-          lockSystem(isFace);
+          lockSystem.lockSystem(isFace);
         }
       } else {
         event.data.forEach(function(rect) {
           if(!isFace){
             isFace = true;
             console.log('PRESENT');
-            lockSystem(isFace);
+            lockSystem.cancelLock();
           }
           
         });  

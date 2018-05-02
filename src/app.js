@@ -1,4 +1,6 @@
-const { app, BrowserWindow, Tray } = require('electron')
+//import { nativeImage } from 'electron';
+
+const { app, BrowserWindow, Tray, nativeImage } = require('electron')
 const path = require('path')
 const url = require('url')
 
@@ -12,7 +14,10 @@ function createWindow() {
   // Create the browser window.
   win = new BrowserWindow({ width: 800, height: 600})
   
-  var appIcon = new Tray('src/camera.png')
+  const iconPath = path.join('src/camera.png');
+  var trayIcon = nativeImage.createFromPath(iconPath);
+  trayIcon = trayIcon.resize({ width: 16, height: 16 });
+  const tray = new Tray(trayIcon);
   
   // and load the index.html of the app.
   win.loadURL(url.format({
