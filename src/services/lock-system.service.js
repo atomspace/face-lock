@@ -12,12 +12,8 @@ function checkAndLock() {
     }, lockDelay)
 }
 
-function lockSystem(face) {
-    if (face === true) {
-        isFace = true;
-    } else {
-        isFace = false;
-    }
+function lockSystem() {
+    isFace = false;
     checkAndLock();
 } 
 
