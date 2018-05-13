@@ -1,12 +1,12 @@
 var system = require('./system.service.js');
 
-var lockDelay = 10000;
-var isTimer = false;
+var isTimer = true;
+var lockTimer;
 
 module.exports = {
-    lockSystem: function lockSystem() {
+    lockSystem: function lockSystem(lockDelay) {
         if(!isTimer) {
-            lockIfAbsent = setTimeout( function() {
+            lockTimer = setTimeout( function() {
                 console.log('Locking system...');
                 system.lock();
                 isTimer = false;
@@ -15,7 +15,7 @@ module.exports = {
         isTimer = true;
     },
     cancelLock: function cancelLock() {
-        clearTimeout(lockIfAbsent);
+        clearTimeout(lockTimer);
         isTimer = false;
     }
 };

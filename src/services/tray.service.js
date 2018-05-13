@@ -11,13 +11,17 @@ function setIcon() {
     const contextMenu = Menu.buildFromTemplate([
         {
             label: 'Start',
-            type: 'normal'
+            type: 'normal',
+            click: function() {
+                app.start();
+            }
         },
         {   label: 'End',
             type: 'normal',
             click: function() {
-                app.quit();
-            }}
+                app.end();
+            }
+        }
     ])
     tray.setToolTip('Locking system if user is afk');
     tray.setContextMenu(contextMenu);

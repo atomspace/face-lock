@@ -1,20 +1,16 @@
 var lockSystem = require('../services/lock-system.service')
+var faceDetecting = require('../services/face-detecting.service')
 
-var video = document.getElementById('video');
-var tracker = new tracking.ObjectTracker('face');
-var isFace = false;
 
-tracking.track('#video', tracker, { camera: true });
+faceDetecting.onAbsent(function() {
+  lockSystem.lockSystem(10000);
+  console.log('ABSENT');
+})
 
-    tracker.on('track', function(event) {
-      if (event.data.length === 0) {
-        console.log('ABSENT');
-        lockSystem.lockSystem();
-      } else {
-        event.data.forEach(function(rect) {
-          console.log('PRESENT');
-          lockSystem.cancelLock();
-        });  
-    }
-      
-});
+faceDetecting.onPresent(function() {
+  lockSystem.cancelLock();
+  console.log('PRESENT');
+})
+
+
+   
