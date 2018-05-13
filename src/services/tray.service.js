@@ -1,4 +1,4 @@
-const { Tray, Menu, nativeImage } = require('electron')
+const { Tray, Menu, BrowserWindow, nativeImage } = require('electron')
 const path = require('path')
 
 function setIcon() {
@@ -9,8 +9,15 @@ function setIcon() {
     const tray = new Tray(trayIcon);
     
     const contextMenu = Menu.buildFromTemplate([
-        {label: 'Start', type: 'normal'},
-        {label: 'End', type: 'normal'}
+        {
+            label: 'Start',
+            type: 'normal'
+        },
+        {   label: 'End',
+            type: 'normal',
+            click: function() {
+                app.quit();
+            }}
     ])
     tray.setToolTip('Locking system if user is afk');
     tray.setContextMenu(contextMenu);
