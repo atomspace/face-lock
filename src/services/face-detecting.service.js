@@ -1,3 +1,6 @@
+require('tracking');
+require('tracking/build/data/face');
+
 var video = document.getElementById('video');
 var tracker = new tracking.ObjectTracker('face');
 

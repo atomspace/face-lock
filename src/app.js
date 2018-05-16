@@ -1,7 +1,7 @@
 const { app, BrowserWindow, Tray, nativeImage } = require('electron')
 const path = require('path')
 const url = require('url')
-const setIcon = require('./services/tray.service');
+require('./controllers/tray.controller');
 
 let win
 
@@ -11,10 +11,8 @@ function createWindow() {
   win = new BrowserWindow({ width: 800, height: 600});
   // win.hide();
   
-  setIcon();
-  
   win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
+    pathname: path.resolve(__dirname, './ui/index.html'),
     protocol: 'file:',
     slashes: true
   }))

@@ -1,0 +1,2 @@
+require('../controllers/lock.controller');  
+

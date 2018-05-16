@@ -1,30 +1,33 @@
-const { Tray, Menu, BrowserWindow, nativeImage } = require('electron')
+const { app, Tray, Menu, BrowserWindow, nativeImage } = require('electron')
 const path = require('path')
 
-function setIcon() {
-    const iconPath = path.join('src/camera.png');
-    var trayIcon = nativeImage.createFromPath(iconPath);
+var tray;
 
-    trayIcon = trayIcon.resize({ width: 16, height: 16 });
-    const tray = new Tray(trayIcon);
+var whenAppReady = new Promise(function(resolve) {
+    app.on('ready', resolve)
+})
+
+function setIcon(iconPath) {
+    whenAppReady.then(function(){
+        const absoluteIconPath = path.join(iconPath);
+        var trayIcon = nativeImage.createFromPath(absoluteIconPath);
     
-    const contextMenu = Menu.buildFromTemplate([
-        {
-            label: 'Start',
-            type: 'normal',
-            click: function() {
-                app.start();
-            }
-        },
-        {   label: 'End',
-            type: 'normal',
-            click: function() {
-                app.end();
-            }
-        }
-    ])
-    tray.setToolTip('Locking system if user is afk');
-    tray.setContextMenu(contextMenu);
+        trayIcon = trayIcon.resize({ width: 16, height: 16 });
+        const tray = new Tray(trayIcon);
+    
+        tray.setToolTip('Locking system if user is afk');
+    })
 }
 
-module.exports = setIcon;
+function setMenu(menuTemplate) {
+    whenAppReady.then(function(){
+        const contextMenu = Menu.buildFromTemplate(menuTemplate)
+        tray.setContextMenu(contextMenu);
+    })   
+}
+
+
+module.exports = {
+    setIcon: setIcon,
+    setMenu: setMenu
+};
