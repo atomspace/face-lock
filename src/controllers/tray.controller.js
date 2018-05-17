@@ -1,7 +1,10 @@
 var tray = require('../services/tray.service'); 
-var {app} = require('electron')
+var app = require('../services/app.service');
+
 
 tray.setIcon('src/camera.png')
+
+tray.setTip('Locking system if user is afk');
 
 tray.setMenu([
     {
@@ -13,12 +16,3 @@ tray.setMenu([
         }
     }
 ])
-
-
-// {
-//     label: 'Start',
-//     type: 'normal',
-//     click: function() {
-//         console.log('Srart')
-//     }
-// },
