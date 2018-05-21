@@ -9,7 +9,6 @@ var present = false;
 tracking.track('#video', tracker, { camera: true });
 
 module.exports = {
-    // present: present,
 
     onAbsent: function(callback) {
         tracker.on('track', function(event) {
