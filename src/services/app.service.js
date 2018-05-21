@@ -1,6 +1,6 @@
-var {app} = require('electron')
+let { app } = require('electron');
 
 module.exports = {
-    quit: app.quit,
-    focus: app.focus
-}
+	quit: app.quit,
+	focus: app.focus
+};

@@ -6,7 +6,8 @@
   "scripts": {
     "test": "neutrino test --use @neutrinojs/jest",
     "start": "cross-env NODE_ENV=development electron .",
-    "build": "electron-packager . --out=build --overwrite --ignore=\\.vscode"
+    "build": "electron-packager . --out=build --overwrite --ignore=\\.vscode",
+    "lint": "neutrino lint"
   },
   "author": "quantum",
   "license": "GPL-3.0",
@@ -19,6 +20,7 @@
     "electron-packager": "12.0.2",
     "neutrino": "8.2.3",
     "@neutrinojs/jest": "8.2.3",
-    "cross-env": "5.1.5"
+    "cross-env": "5.1.5",
+    "@atomspace/eslint": "2.1.0"
   }
 }

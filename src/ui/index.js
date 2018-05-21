@@ -1,2 +1,1 @@
-require('../controllers/lock.controller');  
-
+require('../controllers/lock.controller');

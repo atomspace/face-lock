@@ -1,16 +1,13 @@
-var lockSystem = require('../services/lock-system.service')
-var faceDetecting = require('../services/face-detecting.service')
+let screen = require('../services/screen.service');
+let face = require('../services/face.service');
 
 
-faceDetecting.onAbsent(function() {
-  lockSystem.lockSystem(10000);
-  console.log('ABSENT');
-})
+face.onAbsent(function () {
+	console.log('ABSENT');
+	screen.lockWithDelay(10000);
+});
 
-faceDetecting.onPresent(function() {
-  lockSystem.cancelLock();
-  console.log('PRESENT');
-})
-
-
-   
+face.onPresent(function () {
+	console.log('PRESENT');
+	screen.cancelLock();
+});
