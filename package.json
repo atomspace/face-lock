@@ -1,7 +1,7 @@
 {
   "name": "face-lock",
   "version": "1.0.0",
-  "description": "",
+  "description": "This program locks the system if user is afk",
   "main": "src/index.js",
   "scripts": {
     "test": "neutrino test --use @neutrinojs/jest",
