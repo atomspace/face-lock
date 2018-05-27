@@ -7,7 +7,12 @@ let win;
 
 
 function createWindow () {
-	win = new BrowserWindow({ width: 800, height: 600 }); // to hide add >>> show: false <<<
+	if (process.env.NODE_ENV === 'development') {
+		win = new BrowserWindow({ width: 800, height: 600 });
+	}
+	else {
+		win = new BrowserWindow({ width: 800, height: 600, show: false });
+	}
 
 	win.loadURL(url.format({
 		pathname: path.resolve(__dirname, '../ui/index.html'),
