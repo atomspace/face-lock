@@ -4,7 +4,7 @@ let tray = require('../services/tray/tray.service');
 let app = require('../services/app.service');
 
 
-tray.setIcon(path.resolve(__dirname, '../camera.png'));
+tray.setIcon(path.resolve(__dirname, '../icons/tray-icon.png'));
 
 tray.setTitle('Locking system if user is afk');
 
