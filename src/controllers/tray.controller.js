@@ -10,7 +10,7 @@ tray.setTitle('Locking system if user is afk');
 
 tray.setMenu([
 	{
-		label: 'End',
+		label: 'Exit',
 		type: 'normal',
 		click () {
 			app.quit();
