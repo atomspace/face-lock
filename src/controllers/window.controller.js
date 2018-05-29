@@ -7,12 +7,9 @@ let win;
 
 
 function createWindow () {
-	if (process.env.NODE_ENV === 'development') {
-		win = new BrowserWindow({ width: 800, height: 600 });
-	}
-	else {
-		win = new BrowserWindow({ width: 800, height: 600, show: false });
-	}
+	let shown = process.env.NODE_ENV === 'development';
+
+	win = new BrowserWindow({ width: 800, height: 600, show: shown });
 
 	win.loadURL(url.format({
 		pathname: path.resolve(__dirname, '../ui/index.html'),

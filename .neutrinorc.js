@@ -1,5 +1,9 @@
 module.exports = {
     use: [
-      '@atomspace/eslint'
+      ['@atomspace/eslint', {
+        eslint: {
+          envs: ['node', 'browser']
+        }
+      }]
     ]
 };
