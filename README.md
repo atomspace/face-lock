@@ -3,8 +3,8 @@ An application to lock desktop when the user leaves.
 
 ## Downloads:
 
-- [Windows installer]()
-- [Windows portable]()
+- [Windows installer](https://github.com/atomspaceodua/face-lock/releases/download/v1.0.0/face-lock-1.0.0-x32-x64.exe)
+- [Windows portable](https://github.com/atomspaceodua/face-lock/releases/download/v1.0.0/face-lock-1.0.0-portable.exe)
 - [Mac installer]()
 - [Linux installer]()
 
