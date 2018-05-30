@@ -60,3 +60,4 @@ typings/
 /build
 /dist
 package-lock.json
+_info

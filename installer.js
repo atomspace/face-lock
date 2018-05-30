@@ -2,15 +2,6 @@ let path = require('path');
 
 let builder = require('electron-builder');
 
-let Platform = builder.Platform;
-
-const PLATFORM = {
-	MAC: Platform.MAC,
-	LINUX: Platform.LINUX,
-	WINDOWS: Platform.WINDOWS,
-	DEFAULT: Platform.current()
-};
-
 let projectPath = path.resolve(process.cwd(), '.');
 let name = 'Face Lock';
 let publisher = 'Atom Space';
@@ -36,22 +27,21 @@ let options = {
 			output: 'dist'
 		},
 		win: {
-			// icon: build/icon.ico
+			icon: 'src/icons/icon.ico',
 			target: ['nsis', 'portable']
 		},
 		mac: {
 			target: 'default',
 			type: (process.env.NODE_ENV === 'development') ? 'development' : 'distribution',
-			category: 'public.app-category.utilities'
+			category: 'public.app-category.utilities',
+			icon: 'src/icons/icon.icns'
 
-			// icon: build/icon.icns
 			// minimumSystemVersion
 		},
 		linux: {
 			executableName: '${productName}',
-			category: 'Utility'
-
-			// icon: 'icon32.png'
+			category: 'Utility',
+			icon: 'src/icons/icon-256.png' // 32
 		},
 		nsis: {
 			oneClick: false,
@@ -64,17 +54,16 @@ let options = {
 			menuCategory: true,
 			shortcutName: '',
 			artifactName: '${name}-${version}-x32-x64.${ext}',
-			uninstallDisplayName: '${productName} ${version}'
-
-			// installerIcon //relative to the build resources or project directory
-			// uninstallerIcon
+			uninstallDisplayName: '${productName} ${version}',
+			installerIcon: 'src/icons/icon.ico', // relative to the build resources or project directory
+			uninstallerIcon: 'src/icons/icon.ico'
 		},
 		portable: {
 			requestExecutionLevel: 'user',
 			artifactName: '${name}-${version}-portable.${ext}'
 		},
 		dmg: {
-			// icon //Defaults to the application icon (build/icon.icns).
+			icon: 'src/icons/icon.icns', // Defaults to the application icon (build/icon.icns).
 			title: '${productName} ${version}',
 			artifactName: '${name}-${version}.${ext}'
 		},
